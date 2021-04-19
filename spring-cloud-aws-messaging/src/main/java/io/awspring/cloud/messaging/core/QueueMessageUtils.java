@@ -100,8 +100,8 @@ public final class QueueMessageUtils {
 				messageHeaders.put(MessageHeaders.CONTENT_TYPE,
 						MimeType.valueOf(messageAttribute.getValue().getStringValue()));
 			}
-			else if (MessageHeaders.ID.equals(messageAttribute.getKey())) {
-				messageHeaders.put(MessageHeaders.ID, UUID.fromString(messageAttribute.getValue().getStringValue()));
+			else if (SqsMessageHeaders.ID.equals(messageAttribute.getKey())) {
+				messageHeaders.put(SqsMessageHeaders.ID, UUID.fromString(messageAttribute.getValue().getStringValue()));
 			}
 			else if (messageAttribute.getValue().getDataType().startsWith(MessageAttributeDataTypes.STRING)) {
 				messageHeaders.put(messageAttribute.getKey(), messageAttribute.getValue().getStringValue());

@@ -34,6 +34,11 @@ import org.springframework.messaging.MessageHeaders;
 public class SqsMessageHeaders extends MessageHeaders {
 
 	/**
+	 * ID header in a SQS message.
+	 */
+	public static final String ID = "MessageId";
+
+	/**
 	 * Delay header in a SQS message.
 	 */
 	public static final String SQS_DELAY_HEADER = "delay";

@@ -541,7 +541,7 @@ class QueueMessageChannelTest {
 						.withAttributeNames(QueueMessageChannel.ATTRIBUTE_NAMES).withMessageAttributeNames("All")))
 								.thenReturn(new ReceiveMessageResult()
 										.withMessages(new com.amazonaws.services.sqs.model.Message().withBody("Hello")
-												.withMessageAttributes(Collections.singletonMap(MessageHeaders.ID,
+												.withMessageAttributes(Collections.singletonMap(SqsMessageHeaders.ID,
 														new MessageAttributeValue()
 																.withDataType(MessageAttributeDataTypes.STRING)
 																.withStringValue(uuid.toString())))));
@@ -552,7 +552,7 @@ class QueueMessageChannelTest {
 		Message<?> receivedMessage = messageChannel.receive();
 
 		// Assert
-		Object idMessageHeader = receivedMessage.getHeaders().get(MessageHeaders.ID);
+		Object idMessageHeader = receivedMessage.getHeaders().get(SqsMessageHeaders.ID);
 		assertThat(idMessageHeader).isInstanceOf(UUID.class).isEqualTo(uuid);
 	}
 
